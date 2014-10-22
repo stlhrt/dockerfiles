@@ -10,3 +10,6 @@
 [submodule "serf"]
 	path = serf
 	url = git@github.com:stlhrt/docker-serf.git
+[submodule "consul"]
+	path = consul
+	url = git@github.com:stlhrt/docker-consul.git
