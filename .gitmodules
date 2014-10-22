@@ -1,0 +1,12 @@
+[submodule "gvm"]
+	path = gvm
+	url = git@github.com:stlhrt/docker-gvm.git
+[submodule "jdk8"]
+	path = jdk8
+	url = git@github.com:stlhrt/docker-jdk8.git
+[submodule "jdk8-serf"]
+	path = jdk8-serf
+	url = git@github.com:stlhrt/docker-jdk8-serf.git
+[submodule "serf"]
+	path = serf
+	url = git@github.com:stlhrt/docker-serf.git
