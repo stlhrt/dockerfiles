@@ -13,3 +13,6 @@
 [submodule "consul"]
 	path = consul
 	url = git@github.com:stlhrt/docker-consul.git
+[submodule "jdk8-consul"]
+	path = jdk8-consul
+	url = git@github.com:stlhrt/docker-jdk8-consul.git
