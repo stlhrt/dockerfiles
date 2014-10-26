@@ -16,9 +16,9 @@
 [submodule "jdk8-consul"]
 	path = jdk8-consul
 	url = git@github.com:stlhrt/docker-jdk8-consul.git
-[submodule "consul-confd"]
-	path = consul-confd
-	url = git@github.com:stlhrt/docker-consul-confd.git
+[submodule "consul-template"]
+	path = consul-template
+	url = git@github.com:stlhrt/docker-consul-template.git
 [submodule "consul-server"]
 	path = consul-server
 	url = git@github.com:stlhrt/docker-consul-server.git
