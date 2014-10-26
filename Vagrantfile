@@ -1,6 +1,34 @@
 # -*- mode: ruby -*-
 # # vi: set ft=ruby :
 
+$fig_script = <<SCRIPT
+echo Install FIG...
+FIG_FILE=/home/core/bin/fig
+if [ -f $FIG_FILE ];
+then
+   echo "File $FIG_FILE exists."
+else
+   echo "File $FIG_FILE does not exist."
+   mkdir -p /home/core/bin
+   curl -L https://github.com/docker/fig/releases/download/1.0.0/fig-`uname -s`-`uname -m` > /home/core/bin/fig
+   chmod +x /home/core/bin/fig
+   chown core /home/core/bin/fig
+fi
+
+RC_FILE=/home/core/.bashrc
+
+if grep -q /bin/fig "$RC_FILE";
+then
+   echo "Fig on PATH."
+else
+  echo "Adding Fig to RC_FILE"
+  rm $RC_FILE
+  cp /usr/share/skel/.bashrc $RC_FILE
+  echo "export PATH=/home/core/bin:$PATH" >> /home/core/.bashrc
+fi
+
+SCRIPT
+
 Vagrant.require_version ">= 1.6.0"
 
 # Defaults for config options defined in CONFIG
@@ -46,6 +74,8 @@ Vagrant.configure("2") do |config|
 
   
   config.vm.network :private_network, ip: $ip
+
+  config.vm.provision "shell", inline: $fig_script
 
   # Uncomment below to enable NFS for sharing the host machine into the coreos-vagrant VM.
   config.vm.synced_folder ".", "/home/core/share", id: "core", :nfs => false, :mount_options => ['nolock,vers=3,noatime']
