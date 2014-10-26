@@ -22,3 +22,6 @@
 [submodule "consul-server"]
 	path = consul-server
 	url = git@github.com:stlhrt/docker-consul-server.git
+[submodule "consul-template-haproxy"]
+	path = consul-template-haproxy
+	url = git@github.com:stlhrt/docker-consul-template-haproxy.git
